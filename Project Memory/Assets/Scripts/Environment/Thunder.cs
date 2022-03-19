@@ -5,6 +5,7 @@ using UnityEngine;
 public class Thunder : MonoBehaviour
 {
     [SerializeField] private Light thunderObject;
+    [SerializeField] private GameObject thunderSound;
 
     [SerializeField] private AnimationCurve lightningCurve;
 
@@ -47,6 +48,8 @@ public class Thunder : MonoBehaviour
 
     private void ActivateThunder()
     {
+        thunderSound.SetActive(true);
+
         if (lightningRoutine == null)
         {
             lightningRoutine = StartCoroutine(ThunderRoutine());
