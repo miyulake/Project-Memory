@@ -4,28 +4,28 @@ using System.Collections;
 public class FootstepSounds : MonoBehaviour
 {
     [Header("Audio Source")]
-    public AudioSource footstepAudio;
+    [SerializeField] private AudioSource audioManager;
 
     [Header("Audio Clips")]
-    public AudioClip brickFootsteps;
-    public AudioClip grassFootsteps;
+    [SerializeField] private AudioClip brickFootsteps;
+    [SerializeField] private AudioClip grassFootsteps;
 
     [Header("Audio Values")]
-    public float footstepDelay;
+    [SerializeField] private float footstepDelay;
     [Space]
-    public float audioVolume;
+    [SerializeField] private float audioVolume;
     [Space]
-    public float minimumPitch = 0.9f;
-    public float maximumPitch = 1f;
+    [SerializeField] private float minimumPitch = 0.9f;
+    [SerializeField] private float maximumPitch = 1f;
 
     [Header("Debug")]
-    public float nextFootstep;
+    [SerializeField] private float nextFootstep;
 
     /// <summary>
     // If WASD is pressed it will check what tag the floor has.
     // It will then play the audio clip attached to that tag.
     /// </summary>
-    void Update()
+    private void Update()
     {
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S)
             || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W))
@@ -40,16 +40,16 @@ public class FootstepSounds : MonoBehaviour
                 {
                     floortag = hit.collider.gameObject.tag;
 
-                    footstepAudio.pitch = Random.Range(minimumPitch, maximumPitch);
+                    audioManager.pitch = Random.Range(minimumPitch, maximumPitch);
 
                     switch (floortag)
                     {
                         default:
-                            footstepAudio.PlayOneShot(brickFootsteps, audioVolume);
+                            audioManager.PlayOneShot(brickFootsteps, audioVolume);
                             break;
 
                         case "Grass":
-                            footstepAudio.PlayOneShot(grassFootsteps, audioVolume);
+                            audioManager.PlayOneShot(grassFootsteps, audioVolume);
                             break;
                     }
                 }
