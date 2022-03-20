@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdMovement : MonoBehaviour
+public class MoveTowards : MonoBehaviour
 {
     [SerializeField] private GameObject target;
 
