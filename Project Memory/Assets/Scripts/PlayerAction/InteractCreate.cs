@@ -10,7 +10,11 @@ public class InteractCreate : MonoBehaviour
     private void Awake()
     {
         interactText.SetActive(false);
-        item.SetActive(false);
+
+        if (item != null)
+        {
+            item.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter()
@@ -23,7 +27,11 @@ public class InteractCreate : MonoBehaviour
         if (col.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
         {
             interactText.SetActive(false);
-            item.SetActive(true);
+
+            if (item != null)
+            {
+                item.SetActive(true);
+            }
         }
     }
 
@@ -32,7 +40,11 @@ public class InteractCreate : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             interactText.SetActive(false);
-            item.SetActive(false);
+
+            if (item != null)
+            {
+                item.SetActive(false);
+            }
         }
     }
 }

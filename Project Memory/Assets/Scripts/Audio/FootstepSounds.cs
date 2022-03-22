@@ -21,6 +21,8 @@ public class FootstepSounds : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private float nextFootstep;
 
+    [SerializeField] private PlayerMovement playerMovement;
+
     /// <summary>
     // If WASD is pressed it will check what tag the floor has.
     // It will then play the audio clip attached to that tag.
@@ -55,6 +57,15 @@ public class FootstepSounds : MonoBehaviour
                 }
                    nextFootstep += footstepDelay;
             }
+        }
+
+        if (playerMovement.Velocity.y > 0)
+        {
+            audioManager.Stop();
+        }
+        if (playerMovement.Velocity.y <= 0)
+        {
+            audioManager.Play();
         }
     }
 }
