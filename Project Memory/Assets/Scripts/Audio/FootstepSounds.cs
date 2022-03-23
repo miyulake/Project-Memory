@@ -23,6 +23,11 @@ public class FootstepSounds : MonoBehaviour
 
     [SerializeField] private PlayerMovement playerMovement;
 
+    private void Awake()
+    {
+        playerMovement = GetComponent<PlayerMovement>();
+    }
+
     /// <summary>
     // If WASD is pressed it will check what tag the floor has.
     // It will then play the audio clip attached to that tag.
@@ -32,7 +37,11 @@ public class FootstepSounds : MonoBehaviour
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S)
             || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W))
         {
-            nextFootstep -= Time.deltaTime;
+
+            if (playerMovement.Velocity.y >= 0)
+            {
+                nextFootstep -= Time.deltaTime;
+            }
 
             if (nextFootstep <= 0)
             {
@@ -57,15 +66,6 @@ public class FootstepSounds : MonoBehaviour
                 }
                    nextFootstep += footstepDelay;
             }
-        }
-
-        if (playerMovement.Velocity.y > 0)
-        {
-            audioManager.Stop();
-        }
-        if (playerMovement.Velocity.y <= 0)
-        {
-            audioManager.Play();
         }
     }
 }

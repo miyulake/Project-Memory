@@ -7,9 +7,9 @@ public class InteractTeleport : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject teleportTarget;
 
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerStay(Collider col)
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
         {
             player.transform.position = teleportTarget.transform.position;
         }
