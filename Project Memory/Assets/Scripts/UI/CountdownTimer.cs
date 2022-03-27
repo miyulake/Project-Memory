@@ -5,9 +5,13 @@ using TMPro;
 
 public class CountdownTimer : MonoBehaviour
 {
+    [Space]
     [SerializeField] private float timeLeft = 60;
-
     [SerializeField] private TextMeshProUGUI countdownText;
+
+    [Space]
+    [SerializeField] private GameObject text;
+    [SerializeField] private GameObject enemy;
 
     void Update()
     {
@@ -17,6 +21,9 @@ public class CountdownTimer : MonoBehaviour
         if (timeLeft <= 0)
         {
             //Death Approaches.
+            text.SetActive(false);
+            enemy.SetActive(true);
+            
         }
     }
 
