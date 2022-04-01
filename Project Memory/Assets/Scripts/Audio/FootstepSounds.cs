@@ -8,7 +8,7 @@ public class FootstepSounds : MonoBehaviour
 
     [Header("Audio Clips")]
     [SerializeField] private AudioClip brickFootsteps;
-    [SerializeField] private AudioClip grassFootsteps;
+    [SerializeField] private AudioClip snowFootsteps;
 
     [Header("Audio Values")]
     [SerializeField] private float footstepDelay;
@@ -59,8 +59,8 @@ public class FootstepSounds : MonoBehaviour
                             audioManager.PlayOneShot(brickFootsteps, audioVolume);
                             break;
 
-                        case "Grass":
-                            audioManager.PlayOneShot(grassFootsteps, audioVolume);
+                        case "Snow":
+                            audioManager.PlayOneShot(snowFootsteps, audioVolume);
                             break;
                     }
                 }
