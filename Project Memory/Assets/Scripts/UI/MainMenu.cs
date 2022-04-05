@@ -4,14 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 
 public class MainMenu : MonoBehaviour
 {
     [Space]
     Resolution[] resolutions;
     [SerializeField] private TMP_Dropdown resolutionDropdown;
+    [SerializeField] private Slider FOVSlider;
 
-    [Space]
+    [Header("Starting Scene")]
     [SerializeField] private string nextScene;
     [SerializeField] private string skippedScene;
     [SerializeField] bool skipIntro;
@@ -20,10 +22,14 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private AudioSource interactAudio;
     [SerializeField] private AudioClip menuSound;
 
+    [Header("Game Settings")]
+    [SerializeField] private Volume urpVolume;
+    [SerializeField] private GameSettings playerSettings;
 
-
-    private void Awake()
+    private void Start()
     {
+        SetFOV(70);
+
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
@@ -86,16 +92,32 @@ public class MainMenu : MonoBehaviour
         QualitySettings.SetQualityLevel(qualityIndex);
     }
 
-    public void SetFullscreen(bool isFullscreen)
-    {
-        Screen.fullScreen = isFullscreen;
-    }
-
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
-    public void SetIntroState(bool introToggle) => skipIntro = introToggle;
+    public void SetFullscreen(bool isFullscreen) => Screen.fullScreen = isFullscreen;
+    public void SetIntroState(bool introToggle)  => skipIntro         = introToggle;
+
+    public void SetPostProcessing(bool isEnabled)
+    {
+        playerSettings.postEnabled = isEnabled;
+
+        if (!isEnabled)
+        {
+            urpVolume.weight = 0;
+        }
+        else
+        {
+            urpVolume.weight = 1;
+        }
+    }
+
+    public void SetFOV(float FOV)
+    {
+        FOVSlider.value = FOV;
+        playerSettings.playerFOV = FOV;
+    }
 }

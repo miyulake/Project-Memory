@@ -46,7 +46,7 @@ public class CharacterMovement : MonoBehaviour
     private float fall;
 
     //  References.
-    private CharacterController characterController;
+    public CharacterController characterController;
 
     private void Awake()
     {

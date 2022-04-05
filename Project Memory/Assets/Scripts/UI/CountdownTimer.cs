@@ -13,7 +13,7 @@ public class CountdownTimer : MonoBehaviour
     [SerializeField] private GameObject text;
     [SerializeField] private GameObject enemy;
 
-    void Update()
+    private void Update()
     {
         countdownText.text = "" + Mathf.CeilToInt(timeLeft);
 

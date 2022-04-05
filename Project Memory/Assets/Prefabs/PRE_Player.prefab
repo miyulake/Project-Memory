@@ -440,14 +440,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9632e254dee0148a9d3c530be236b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstepAudio: {fileID: 0}
+  audioManager: {fileID: 0}
   brickFootsteps: {fileID: 8300000, guid: 08735000c7348a449863c725477465fd, type: 3}
-  grassFootsteps: {fileID: 0}
+  snowFootsteps: {fileID: 0}
   footstepDelay: 0.5
   audioVolume: 0.25
   minimumPitch: 0.9
   maximumPitch: 1
   nextFootstep: 0
+  playerMovement: {fileID: 0}
 --- !u!1 &7194224734773861007
 GameObject:
   m_ObjectHideFlags: 0
