@@ -14,7 +14,7 @@ public class InteractMoveObject : MonoBehaviour
 
     private ObjectState objectState;
 
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioManager;
     [SerializeField] private AudioClip moveAudio;
     [SerializeField] private AudioClip stopAudio;
 
@@ -61,7 +61,7 @@ public class InteractMoveObject : MonoBehaviour
     {
         objectState = ObjectState.opening;
 
-        audioSource.PlayOneShot(moveAudio);
+        audioManager.PlayOneShot(moveAudio);
 
         Invoke("Open", time);
     }
@@ -70,14 +70,14 @@ public class InteractMoveObject : MonoBehaviour
     {
         objectState = ObjectState.open;
 
-        audioSource.PlayOneShot(stopAudio);
+        audioManager.PlayOneShot(stopAudio);
     }
 
     private void Closing()
     {
         objectState = ObjectState.closing;
 
-        audioSource.PlayOneShot(moveAudio);
+        audioManager.PlayOneShot(moveAudio);
 
         Invoke("Close", time);
     }
@@ -86,6 +86,6 @@ public class InteractMoveObject : MonoBehaviour
     {
         objectState = ObjectState.close;
 
-        audioSource.PlayOneShot(stopAudio);
+        audioManager.PlayOneShot(stopAudio);
     }
 }

@@ -897,6 +897,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1468959312}
   inventorySystem: {fileID: 846253808}
+  playerSettings: {fileID: 0}
+  playerCamera: {fileID: 0}
+  urpVolume: {fileID: 0}
 --- !u!4 &637006880
 Transform:
   m_ObjectHideFlags: 0
@@ -2966,7 +2969,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1858299647}
-  chaseSpeed: 1
+  startSpeed: 1
+  endSpeed: 0
+  timeToReachEndspeed: 60
   cc: {fileID: 0}
 --- !u!1 &1275187609
 GameObject:
@@ -3261,6 +3266,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7194224734431851715, guid: 18194f96e47d51b45973029dbd2d2604, type: 3}
   m_PrefabInstance: {fileID: 7194224735785510362}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1468959313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468959312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d63d7fa1b078254eb0fc98f084de599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveScript: {fileID: 0}
+  dashSpeed: 5
+  dashTime: 0.25
+  dashCooldown: 1
+  dashInput: 32
+  audioManager: {fileID: 1190355177}
+  dashSound: {fileID: 8300000, guid: 9078b3607a930ca4eab8ee6e1fbbaed9, type: 3}
 --- !u!43 &1606187095
 Mesh:
   m_ObjectHideFlags: 0
@@ -9109,9 +9133,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1468959313, guid: 18194f96e47d51b45973029dbd2d2604, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1190355177}
+    - target: {fileID: 1468959313, guid: 18194f96e47d51b45973029dbd2d2604, type: 3}
       propertyPath: footstepAudio
       value: 
       objectReference: {fileID: 1190355177}
+    - target: {fileID: 3834617902804540121, guid: 18194f96e47d51b45973029dbd2d2604, type: 3}
+      propertyPath: jumpStrength
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7194224734431851713, guid: 18194f96e47d51b45973029dbd2d2604, type: 3}
       propertyPath: m_RootOrder
       value: 6

@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6653aa2be68474aaff77de10d84ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 5080552789378659078}
+  audioManager: {fileID: 5080552789378659078}
   moveAudio: {fileID: 8300000, guid: fc28f64ef8a70294b8cbc57912e7ef2c, type: 3}
   stopAudio: {fileID: 8300000, guid: 9078b3607a930ca4eab8ee6e1fbbaed9, type: 3}
   moveOffset: {x: 0, y: 0.75, z: 0}
