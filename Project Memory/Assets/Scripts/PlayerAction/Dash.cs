@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dash : MonoBehaviour
 {
@@ -13,12 +14,18 @@ public class Dash : MonoBehaviour
     [SerializeField] private float dashCooldown;
     [SerializeField] private KeyCode dashInput;
 
-    private bool canDash;
+    [Header("UI")]
+    [SerializeField] private GameObject dashScreen;
+    [SerializeField] private RawImage dashIcon;
+    [SerializeField] private Texture canDashIcon;
+    [SerializeField] private Texture cannotDashIcon;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioManager;
     [SerializeField] private AudioClip dashSound;
     [SerializeField] private float audioVolume;
+
+    private bool canDash;
 
     private void Awake()
     {
@@ -36,7 +43,18 @@ public class Dash : MonoBehaviour
         {
             StartCoroutine(DashAction());
             StartCoroutine(DashCooldown());
+
+            dashScreen.SetActive(true);
+            dashIcon.color = new Color(1, 1, 1, 0.5f);
+            dashIcon.texture = cannotDashIcon;
+
             audioManager.PlayOneShot(dashSound, audioVolume);
+        }
+        else
+        {
+            dashScreen.SetActive(false);
+            dashIcon.color = new Color(1, 1, 1, 1);
+            dashIcon.texture = canDashIcon;
         }
     }
 
