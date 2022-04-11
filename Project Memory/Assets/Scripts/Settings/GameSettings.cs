@@ -7,6 +7,7 @@ public class GameSettings : ScriptableObject
 {
     [Header("Player Settings")]
     [Range(40, 120)] public float playerFOV = 70;
+    public bool canDash;
 
     [Header("Game Settings")]
     public bool postEnabled;

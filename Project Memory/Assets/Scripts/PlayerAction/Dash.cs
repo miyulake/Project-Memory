@@ -7,6 +7,7 @@ public class Dash : MonoBehaviour
 {
     [Space]
     [SerializeField] private CharacterMovement moveScript;
+    [SerializeField] private GameSettings dashSetting;
 
     [Header("Dash Values")]
     [SerializeField] private float dashSpeed;
@@ -15,7 +16,11 @@ public class Dash : MonoBehaviour
     [SerializeField] private KeyCode dashInput;
 
     [Header("UI")]
-    [SerializeField] private GameObject dashScreen;
+    [SerializeField] private RawImage dashScreen;
+    [SerializeField] private float screenFadeSpeed;
+    [SerializeField] private Color transparent;
+    [SerializeField] private Color opaque;
+
     [SerializeField] private RawImage dashIcon;
     [SerializeField] private Texture canDashIcon;
     [SerializeField] private Texture cannotDashIcon;
@@ -25,7 +30,7 @@ public class Dash : MonoBehaviour
     [SerializeField] private AudioClip dashSound;
     [SerializeField] private float audioVolume;
 
-    private bool canDash;
+    //private bool canDash;
 
     private void Awake()
     {
@@ -34,27 +39,21 @@ public class Dash : MonoBehaviour
 
     private void Start()
     {
-        canDash = true;
+        dashSetting.canDash = true;
     }
 
     private void Update()
     {
-        if ((Input.GetKeyDown(dashInput) || Input.GetKeyUp(dashInput)) && canDash)
+        if ((Input.GetKeyDown(dashInput) || Input.GetKeyUp(dashInput)) && dashSetting.canDash)
         {
             StartCoroutine(DashAction());
             StartCoroutine(DashCooldown());
 
-            dashScreen.SetActive(true);
+            dashScreen.color = Color.Lerp(transparent, opaque, screenFadeSpeed);
             dashIcon.color = new Color(1, 1, 1, 0.5f);
             dashIcon.texture = cannotDashIcon;
 
             audioManager.PlayOneShot(dashSound, audioVolume);
-        }
-        else
-        {
-            dashScreen.SetActive(false);
-            dashIcon.color = new Color(1, 1, 1, 1);
-            dashIcon.texture = canDashIcon;
         }
     }
 
@@ -68,14 +67,19 @@ public class Dash : MonoBehaviour
 
             yield return null;
         }
+
+        dashScreen.color = Color.Lerp(opaque, transparent, screenFadeSpeed);
     }
 
     IEnumerator DashCooldown()
     {
-        canDash = false;
+        dashSetting.canDash = false;
 
         yield return new WaitForSeconds(dashCooldown);
 
-        canDash = true;
+        dashIcon.color = new Color(1, 1, 1, 1);
+        dashIcon.texture = canDashIcon;
+
+        dashSetting.canDash = true;
     }
 }
