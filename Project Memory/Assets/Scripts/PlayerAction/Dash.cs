@@ -12,46 +12,53 @@ public class Dash : MonoBehaviour
     [Header("Dash Values")]
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashTime;
-    [SerializeField] private float dashCooldown;
     [SerializeField] private KeyCode dashInput;
 
-    [Header("UI")]
-    [SerializeField] private RawImage dashScreen;
-    [SerializeField] private float screenFadeSpeed;
-    [SerializeField] private Color transparent;
-    [SerializeField] private Color opaque;
+    [Header("Input Values")]
+    [SerializeField] private float inputTime;
+    private float inputTimer;
 
+    [Header("UI")]
+    //[SerializeField] private GameObject dashScreen;
     [SerializeField] private RawImage dashIcon;
-    [SerializeField] private Texture canDashIcon;
-    [SerializeField] private Texture cannotDashIcon;
+    [SerializeField] private Texture[] textureList;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioManager;
     [SerializeField] private AudioClip dashSound;
     [SerializeField] private float audioVolume;
 
-    //private bool canDash;
-
     private void Awake()
     {
         moveScript = GetComponent<PlayerMovement>();
     }
 
-    private void Start()
-    {
-        dashSetting.canDash = true;
-    }
-
     private void Update()
     {
-        if ((Input.GetKeyDown(dashInput) || Input.GetKeyUp(dashInput)) && dashSetting.canDash)
+        if (Input.GetKey(dashInput) && dashSetting.canDash)
         {
-            StartCoroutine(DashAction());
-            StartCoroutine(DashCooldown());
+            var percentage = Mathf.Clamp01(inputTimer / inputTime);
+            var currentIndex = Mathf.RoundToInt((textureList.Length - 1) * percentage);
 
-            dashScreen.color = Color.Lerp(transparent, opaque, screenFadeSpeed);
-            dashIcon.color = new Color(1, 1, 1, 0.5f);
-            dashIcon.texture = cannotDashIcon;
+            inputTimer += Time.deltaTime;
+
+            ChangeSprite(currentIndex);
+        }
+
+        if (Input.GetKeyUp(dashInput) && dashSetting.canDash && inputTimer < inputTime) 
+        {
+            inputTimer = 0;
+            ChangeSprite(0);
+        }
+
+        if (Input.GetKeyUp(dashInput) && dashSetting.canDash && inputTimer >= inputTime)
+        {
+            inputTimer = 0;
+            ChangeSprite(0);
+
+            StartCoroutine(DashAction());
+
+            //dashScreen.SetActive(true);
 
             audioManager.PlayOneShot(dashSound, audioVolume);
         }
@@ -68,18 +75,11 @@ public class Dash : MonoBehaviour
             yield return null;
         }
 
-        dashScreen.color = Color.Lerp(opaque, transparent, screenFadeSpeed);
+        //dashScreen.SetActive(false);
     }
 
-    IEnumerator DashCooldown()
+    private void ChangeSprite(int index)
     {
-        dashSetting.canDash = false;
-
-        yield return new WaitForSeconds(dashCooldown);
-
-        dashIcon.color = new Color(1, 1, 1, 1);
-        dashIcon.texture = canDashIcon;
-
-        dashSetting.canDash = true;
+        dashIcon.texture = textureList[index];
     }
 }

@@ -16,17 +16,10 @@ public class ImageCycle : MonoBehaviour
 
     private void Update()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= time)
-        {
-            Cycle();
-            timer = 0;
-        }
-
+        Iterate(Time.deltaTime);
     }
 
-    private void Cycle()
+    public void Cycle()
     {
         currentIndex++;
 
@@ -36,5 +29,16 @@ public class ImageCycle : MonoBehaviour
         }
 
         image.texture = textureList[currentIndex];
+    }
+
+    public void Iterate(float deltaTime)
+    {
+        timer += deltaTime;
+
+        if (timer >= time)
+        {
+            Cycle();
+            timer = 0;
+        }
     }
 }
