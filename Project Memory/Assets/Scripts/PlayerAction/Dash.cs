@@ -19,14 +19,21 @@ public class Dash : MonoBehaviour
     private float inputTimer;
 
     [Header("UI")]
-    //[SerializeField] private GameObject dashScreen;
     [SerializeField] private RawImage dashIcon;
     [SerializeField] private Texture[] textureList;
+    [SerializeField] private RawImage dashAura;
+    [SerializeField] private float degrees;
+
+    private Vector3 rotationEuler;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioManager;
     [SerializeField] private AudioClip dashSound;
+    [SerializeField] private AudioClip chargingSound;
+    [SerializeField] private AudioClip readySound;
     [SerializeField] private float audioVolume;
+
+    private bool playOnce = true;
 
     private void Awake()
     {
@@ -35,32 +42,68 @@ public class Dash : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(dashInput) && dashSetting.canDash)
+        dashAura.transform.rotation = Quaternion.Euler(rotationEuler);
+
+        if (dashSetting.canDash)
         {
-            var percentage = Mathf.Clamp01(inputTimer / inputTime);
-            var currentIndex = Mathf.RoundToInt((textureList.Length - 1) * percentage);
+            if (Input.GetKey(dashInput) && inputTimer < inputTime)
+            {
+                var percentage = Mathf.Clamp01(inputTimer / inputTime);
+                var currentIndex = Mathf.RoundToInt((textureList.Length - 1) * percentage);
 
-            inputTimer += Time.deltaTime;
+                inputTimer += Time.deltaTime;
 
-            ChangeSprite(currentIndex);
-        }
+                dashIcon.color = new Color(1, 1, 1, 0.25f + percentage);
+                dashAura.color = new Color(1, 0, 0, 0 + percentage);
+                ChangeSprite(currentIndex);
+            }
 
-        if (Input.GetKeyUp(dashInput) && dashSetting.canDash && inputTimer < inputTime) 
-        {
-            inputTimer = 0;
-            ChangeSprite(0);
-        }
+            if (Input.GetKey(dashInput))
+            {
+                rotationEuler += Vector3.forward * degrees * Time.deltaTime;
+            }
 
-        if (Input.GetKeyUp(dashInput) && dashSetting.canDash && inputTimer >= inputTime)
-        {
-            inputTimer = 0;
-            ChangeSprite(0);
+            if (Input.GetKeyDown(dashInput))
+            {
+                audioManager.PlayOneShot(chargingSound, audioVolume);
+                playOnce = true;
+            }
 
-            StartCoroutine(DashAction());
+            if (Input.GetKeyUp(dashInput) && inputTimer < inputTime)
+            {
+                inputTimer = 0;
 
-            //dashScreen.SetActive(true);
+                dashIcon.color = new Color(1, 1, 1, 0.25f);
+                dashAura.color = new Color(1, 0, 0, 0);
+                ChangeSprite(0);
 
-            audioManager.PlayOneShot(dashSound, audioVolume);
+                rotationEuler += Vector3.forward * 0 * Time.deltaTime;
+
+                audioManager.Stop();
+            }
+
+            if (playOnce && inputTimer >= inputTime)
+            {
+                audioManager.Stop();
+                audioManager.PlayOneShot(readySound, audioVolume);
+
+                playOnce = false;
+            }
+
+            if (Input.GetKeyUp(dashInput) && inputTimer >= inputTime)
+            {
+                inputTimer = 0;
+
+                dashIcon.color = new Color(1, 1, 1, 0.25f);
+                dashAura.color = new Color(1, 0, 0, 0);
+                ChangeSprite(0);
+
+                rotationEuler += Vector3.forward * 0 * Time.deltaTime;
+
+                StartCoroutine(DashAction());
+
+                audioManager.PlayOneShot(dashSound, audioVolume);
+            }
         }
     }
 

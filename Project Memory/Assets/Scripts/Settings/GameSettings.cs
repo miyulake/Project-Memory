@@ -8,6 +8,8 @@ public class GameSettings : ScriptableObject
     [Header("Player Settings")]
     [Range(40, 120)] public float playerFOV = 70;
     public bool canDash;
+    public string playerName;
+    public string playerVessel;
 
     [Header("Game Settings")]
     public bool postEnabled;

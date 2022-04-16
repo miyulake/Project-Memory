@@ -17,9 +17,12 @@ public class InteractCreate : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter()
+    private void OnTriggerEnter(Collider col)
     {
-        interactText.SetActive(true);
+        if (col.CompareTag("Player"))
+        {
+            interactText.SetActive(true);
+        }
     }
 
     private void OnTriggerStay(Collider col)
