@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Opening Scene.unity
     guid: 9804dab116881964ba2604e3b05f7089
   - enabled: 1
+    path: Assets/Scenes/Questionnaire.unity
+    guid: 196a7617c05d1ef44a7bb39f29d63793
+  - enabled: 1
     path: Assets/Scenes/Level01.unity
     guid: ddb86dd913784bf4eb1aacda61b6c2f2
   - enabled: 1

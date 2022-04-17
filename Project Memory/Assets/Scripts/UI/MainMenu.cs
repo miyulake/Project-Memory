@@ -17,10 +17,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private string nextScene;
     [SerializeField] private string skippedScene;
     [SerializeField] bool skipIntro;
+    [SerializeField] private float waitTime = 10;
 
     [Header("Menu Audio")]
-    [SerializeField] private AudioSource interactAudio;
+    [SerializeField] private AudioSource audioManager;
     [SerializeField] private AudioClip menuSound;
+    [SerializeField] private float menuVolume = 1;
+    [SerializeField] private float menuPitch = 1;
 
     [Header("Game Settings")]
     [SerializeField] private Volume urpVolume;
@@ -61,7 +64,7 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator LoadAsync()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(waitTime);
 
         if (!skipIntro)
         {
@@ -84,7 +87,8 @@ public class MainMenu : MonoBehaviour
 
     public void PlaySound()
     {
-        interactAudio.PlayOneShot(menuSound);
+        audioManager.pitch = menuPitch;
+        audioManager.PlayOneShot(menuSound, menuVolume);
     }
 
     public void SetQuality(int qualityIndex)

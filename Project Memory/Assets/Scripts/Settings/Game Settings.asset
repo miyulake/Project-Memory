@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Game Settings
   m_EditorClassIdentifier: 
   playerFOV: 70
+  playerName: Jesse
+  playerVessel: 
   canDash: 1
   postEnabled: 1

@@ -520,6 +520,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 705377436}
+        m_TargetAssemblyTypeName: NameData, Assembly-CSharp
+        m_MethodName: StoreName
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &48860069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1104,11 +1116,13 @@ MonoBehaviour:
   textSpeed: 0.05
   displayedText: {fileID: 156580083}
   audioManager: {fileID: 51667191}
-  scrollSound: {fileID: 8300000, guid: 0d96136e6908c924daed6a25aa61de8e, type: 3}
-  audioVolume: 0.5
+  scrollSound: {fileID: 8300000, guid: 9078b3607a930ca4eab8ee6e1fbbaed9, type: 3}
+  audioVolume: 0.25
   minimumPitch: 3
   maximumPitch: 4
   autoActive: 1
+  useName: 0
+  nameData: {fileID: 0}
 --- !u!1 &273928097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,11 +1260,13 @@ MonoBehaviour:
   textSpeed: 0.05
   displayedText: {fileID: 283767975}
   audioManager: {fileID: 51667191}
-  scrollSound: {fileID: 8300000, guid: 0d96136e6908c924daed6a25aa61de8e, type: 3}
-  audioVolume: 0.5
+  scrollSound: {fileID: 8300000, guid: 9078b3607a930ca4eab8ee6e1fbbaed9, type: 3}
+  audioVolume: 0.25
   minimumPitch: 3
   maximumPitch: 4
   autoActive: 1
+  useName: 0
+  nameData: {fileID: 0}
 --- !u!114 &283767975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1677,7 +1693,7 @@ GameObject:
   - component: {fileID: 453344998}
   - component: {fileID: 453344997}
   m_Layer: 5
-  m_Name: WelcomeButton
+  m_Name: StartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1700,7 +1716,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 25}
+  m_SizeDelta: {x: 170, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &453344997
 MonoBehaviour:
@@ -1790,7 +1806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welcome
+  m_text: Start Soul Creation
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 99a85cb236caa2441a74583ef70b1548, type: 2}
   m_sharedMaterial: {fileID: 327851109835818347, guid: 99a85cb236caa2441a74583ef70b1548, type: 2}
@@ -2255,7 +2271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 544358878}
   m_Layer: 5
-  m_Name: Welcome
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2274,7 +2290,7 @@ RectTransform:
   m_Children:
   - {fileID: 453344996}
   m_Father: {fileID: 705377435}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2750,6 +2766,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 923010339}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 705377437}
+        m_TargetAssemblyTypeName: FadeAudioSource, Assembly-CSharp
+        m_MethodName: FadeAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &588483894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3019,6 +3059,8 @@ GameObject:
   - component: {fileID: 705377434}
   - component: {fileID: 705377433}
   - component: {fileID: 705377432}
+  - component: {fileID: 705377436}
+  - component: {fileID: 705377437}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3100,12 +3142,12 @@ RectTransform:
   m_Children:
   - {fileID: 1191058843}
   - {fileID: 769349814}
-  - {fileID: 923010340}
   - {fileID: 544358878}
   - {fileID: 1593763840}
   - {fileID: 1823294889}
   - {fileID: 1113536902}
   - {fileID: 1454199215}
+  - {fileID: 923010340}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3114,6 +3156,57 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &705377436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705377431}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a752f0aa34945de4998cc219fee0daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSettings: {fileID: 11400000, guid: 5a0241999b63a6b4f9539b31f7e70b3f, type: 2}
+  inputField: {fileID: 453694664}
+  insertedTextBefore:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  insertedTextAfter: []
+  displayText: {fileID: 0}
+--- !u!114 &705377437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705377431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82853849805176f4c9f4dbe00e57b9ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 18495477}
+  fadeDuration: 10
+  autoFade: 0
 --- !u!1 &749366388
 GameObject:
   m_ObjectHideFlags: 0
@@ -3126,6 +3219,7 @@ GameObject:
   - component: {fileID: 749366392}
   - component: {fileID: 749366391}
   - component: {fileID: 749366390}
+  - component: {fileID: 749366393}
   m_Layer: 5
   m_Name: GoodLuckText
   m_TagString: Untagged
@@ -3166,14 +3260,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   insertedText:
   - Don't dissapoint me [NAME]
-  textSpeed: 0.05
+  textSpeed: 0.075
   displayedText: {fileID: 749366391}
   audioManager: {fileID: 51667191}
-  scrollSound: {fileID: 8300000, guid: 0d96136e6908c924daed6a25aa61de8e, type: 3}
-  audioVolume: 0.5
+  scrollSound: {fileID: 8300000, guid: 9078b3607a930ca4eab8ee6e1fbbaed9, type: 3}
+  audioVolume: 0.25
   minimumPitch: 3
   maximumPitch: 4
   autoActive: 1
+  useName: 1
+  nameData: {fileID: 705377436}
 --- !u!114 &749366391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3271,6 +3367,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749366388}
   m_CullTransparentMesh: 1
+--- !u!114 &749366393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749366388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a752f0aa34945de4998cc219fee0daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSettings: {fileID: 11400000, guid: 5a0241999b63a6b4f9539b31f7e70b3f, type: 2}
+  inputField: {fileID: 453694664}
+  insertedTextBefore:
+  - Don't dissapoint me...
+  insertedTextAfter:
+  - 
+  displayText: {fileID: 749366391}
 --- !u!1 &769349813
 GameObject:
   m_ObjectHideFlags: 0
@@ -3666,7 +3781,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 705377435}
-  m_RootOrder: 2
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3685,7 +3800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0844e7fc3664e4caaebf70f42840bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedMod: 0.25
+  SpeedMod: 0.75
   screenImage: {fileID: 923010342}
   targetImageColor: {r: 0, g: 0, b: 0, a: 1}
   text: {fileID: 0}
@@ -4004,7 +4119,7 @@ RectTransform:
   - {fileID: 1220836073}
   - {fileID: 588483892}
   m_Father: {fileID: 705377435}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4163,11 +4278,13 @@ MonoBehaviour:
   textSpeed: 0.05
   displayedText: {fileID: 1152713440}
   audioManager: {fileID: 51667191}
-  scrollSound: {fileID: 8300000, guid: 0d96136e6908c924daed6a25aa61de8e, type: 3}
-  audioVolume: 0.5
+  scrollSound: {fileID: 8300000, guid: 9078b3607a930ca4eab8ee6e1fbbaed9, type: 3}
+  audioVolume: 0.25
   minimumPitch: 3
   maximumPitch: 4
   autoActive: 1
+  useName: 0
+  nameData: {fileID: 0}
 --- !u!1 &1159632469
 GameObject:
   m_ObjectHideFlags: 0
@@ -4749,7 +4866,7 @@ RectTransform:
   m_Children:
   - {fileID: 749366389}
   m_Father: {fileID: 705377435}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5081,7 +5198,7 @@ RectTransform:
   - {fileID: 453694663}
   - {fileID: 48860067}
   m_Father: {fileID: 705377435}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5396,7 +5513,7 @@ RectTransform:
   - {fileID: 533301931}
   - {fileID: 1851966241}
   m_Father: {fileID: 705377435}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
