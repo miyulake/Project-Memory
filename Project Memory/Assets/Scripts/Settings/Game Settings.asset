@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Game Settings
   m_EditorClassIdentifier: 
   playerFOV: 70
-  playerName: Jesse
-  playerVessel: 
+  playerName: Challenger
+  playerVessel: Existence
   canDash: 1
   postEnabled: 1

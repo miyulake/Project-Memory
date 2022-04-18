@@ -9,7 +9,7 @@ public class ChangeFog : MonoBehaviour
     [SerializeField] private Color fogColor;
     [SerializeField] private float fogDensity;
 
-    private void OnTriggerStay(Collider col)
+    private void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Player"))
         {

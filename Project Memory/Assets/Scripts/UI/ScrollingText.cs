@@ -6,7 +6,7 @@ using TMPro;
 public class ScrollingText : MonoBehaviour
 {
     [Header("Text Values")]
-    [SerializeField] [TextArea] private string[] insertedText;
+    [SerializeField] [TextArea] private string insertedText;
     [SerializeField] private float textSpeed = 0.05f;
 
     [Header("UI Elements")]
@@ -24,11 +24,6 @@ public class ScrollingText : MonoBehaviour
     [SerializeField] private bool autoActive;
     [SerializeField] private bool useName;
     [SerializeField] private NameData nameData;
-
-    private void Awake()
-    {
-        nameData = GetComponent<NameData>();
-    }
 
     private void Update()
     {
@@ -48,36 +43,31 @@ public class ScrollingText : MonoBehaviour
     {
         if (!useName)
         {
-            for (int i = 0; i < insertedText[currentDisplayingText].Length + 1; i++)
+            for (int i = 0; i < insertedText.Length + 1; i++)
             {
-                displayedText.text = insertedText[currentDisplayingText].Substring(0, i);
-
-                audioManager.pitch = Random.Range(minimumPitch, maximumPitch);
-                audioManager.PlayOneShot(scrollSound, audioVolume);
-
+                displayedText.text = AddCharacter(insertedText, i);
                 yield return new WaitForSeconds(textSpeed);
             }
         }
         else
         {
-            for (int i = 0; i < nameData.insertedTextBefore[currentDisplayingText].Length; i++)
+            var nameText = $"{nameData.insertedTextBefore}{nameData.gameSettings.playerName}{nameData.insertedTextAfter}";
+
+            for (int i = 0; i < nameText.Length + 1; i++)
             {
-                displayedText.text = nameData.insertedTextBefore[currentDisplayingText].Substring(0, i);
-
-                audioManager.pitch = Random.Range(minimumPitch, maximumPitch);
-                audioManager.PlayOneShot(scrollSound, audioVolume);
-
-                yield return new WaitForSeconds(textSpeed);
-            }
-            for (int i = 0; i < nameData.insertedTextAfter[currentDisplayingText].Length + 1; i++)
-            {
-                displayedText.text = nameData.insertedTextAfter[currentDisplayingText].Substring(0, i) + " " + nameData.gameSettings.playerName;
-
-                audioManager.pitch = Random.Range(minimumPitch, maximumPitch);
-                audioManager.PlayOneShot(scrollSound, audioVolume);
-
+                displayedText.text = AddCharacter(nameText, i);
                 yield return new WaitForSeconds(textSpeed);
             }
         }
+    }
+
+    private string AddCharacter(string displayText, int index)
+    {
+        var result = displayText.Substring(0, index);
+
+        audioManager.pitch = Random.Range(minimumPitch, maximumPitch);
+        audioManager.PlayOneShot(scrollSound, audioVolume);
+
+        return result;
     }
 }

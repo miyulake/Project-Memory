@@ -8,14 +8,25 @@ public class FadeAudioSource : MonoBehaviour
     [SerializeField] private float fadeDuration;
     [SerializeField] private bool autoFade;
 
+    [SerializeField] private bool fadeOut = true;
+
     private void Update()
     {
         if (autoFade) FadeAudio();
     }
 
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.CompareTag("Player"))
+        {
+            FadeAudio();
+        }
+    }
+
     public void FadeAudio()
     {
-        StartCoroutine(StartFade(audioSource, fadeDuration, 0));
+        if (fadeOut) StartCoroutine(StartFade(audioSource, fadeDuration, 0));
+        else StartCoroutine(StartFade(audioSource, fadeDuration, 1));
     }
 
     IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume)

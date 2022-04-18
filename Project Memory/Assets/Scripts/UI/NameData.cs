@@ -7,14 +7,9 @@ public class NameData : MonoBehaviour
 {
     [SerializeField] public GameSettings gameSettings;
     [SerializeField] private TMP_InputField inputField;
-    [SerializeField] [TextArea] public string[] insertedTextBefore;
-    [SerializeField] [TextArea] public string[] insertedTextAfter;
+    [SerializeField] [TextArea] public string insertedTextBefore;
+    [SerializeField] [TextArea] public string insertedTextAfter;
     [SerializeField] private TextMeshProUGUI displayText;
-
-    private void Start()
-    {
-        gameSettings.name = "Challenger";
-    }
 
     public void StoreName()
     {
@@ -30,6 +25,6 @@ public class NameData : MonoBehaviour
 
     public void ShowName()
     {
-        displayText.text = insertedTextBefore + " " + gameSettings.playerName + " " + insertedTextAfter;
+        displayText.text = insertedTextBefore + gameSettings.playerName + insertedTextAfter;
     }
 }

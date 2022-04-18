@@ -19,6 +19,7 @@ public class Dash : MonoBehaviour
     private float inputTimer;
 
     [Header("UI")]
+    [SerializeField] private GameObject dashUI;
     [SerializeField] private RawImage dashIcon;
     [SerializeField] private Texture[] textureList;
     [SerializeField] private RawImage dashAura;
@@ -38,6 +39,18 @@ public class Dash : MonoBehaviour
     private void Awake()
     {
         moveScript = GetComponent<PlayerMovement>();
+    }
+
+    private void Start()
+    {
+        if (dashSetting.canDash)
+        {
+            dashUI.SetActive(true);
+        }
+        else
+        {
+            dashUI.SetActive(false);
+        }
     }
 
     private void Update()
