@@ -15,5 +15,6 @@ MonoBehaviour:
   playerFOV: 70
   playerName: Challenger
   playerVessel: Existence
+  diffuculty: 1
   canDash: 1
   postEnabled: 1
