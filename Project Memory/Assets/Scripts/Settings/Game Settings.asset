@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 697deb2a0db7f3d49b2d984df92ba93b, type: 3}
   m_Name: Game Settings
   m_EditorClassIdentifier: 
-  playerFOV: 70
+  playerFOV: 75
   playerName: Challenger
   playerVessel: Existence
   diffuculty: 1
