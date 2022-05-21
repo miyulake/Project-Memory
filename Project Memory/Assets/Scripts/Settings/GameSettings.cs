@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Game Settings", menuName = "ScriptableObjects/Game Settings", order = 2)]
 public class GameSettings : ScriptableObject
 {
-    public enum PlayerDiffuculty
+    public enum PlayerDifficulty
     {
         easy,
         normal,
@@ -16,7 +16,7 @@ public class GameSettings : ScriptableObject
     [Range(40, 120)] public float playerFOV = 70;
     public string playerName;
     public string playerVessel;
-    public PlayerDiffuculty diffuculty = PlayerDiffuculty.normal;
+    public PlayerDifficulty difficulty = PlayerDifficulty.normal;
     public bool canDash;
 
     [Header("Game Settings")]

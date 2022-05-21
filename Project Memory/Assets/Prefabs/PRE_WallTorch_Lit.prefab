@@ -471,6 +471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallTorch
       objectReference: {fileID: 0}
+    - target: {fileID: 5534459684548819654, guid: 7e6b13fab54506b47b4b4859813ace2c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ee3ae7b332d8b44eba4dabf5a7cc319, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e6b13fab54506b47b4b4859813ace2c, type: 3}
 --- !u!1 &2991794605521649317 stripped

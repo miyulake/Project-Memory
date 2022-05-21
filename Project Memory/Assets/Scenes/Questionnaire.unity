@@ -2162,6 +2162,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 705377440}
+        m_TargetAssemblyTypeName: DifficultyData, Assembly-CSharp
+        m_MethodName: SetDifficulty
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &533301933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2393,6 +2405,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 705377440}
+        m_TargetAssemblyTypeName: DifficultyData, Assembly-CSharp
+        m_MethodName: SetDifficulty
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3084,6 +3108,7 @@ GameObject:
   - component: {fileID: 705377437}
   - component: {fileID: 705377438}
   - component: {fileID: 705377436}
+  - component: {fileID: 705377440}
   - component: {fileID: 705377439}
   m_Layer: 5
   m_Name: Canvas
@@ -3212,6 +3237,7 @@ MonoBehaviour:
   audioSource: {fileID: 18495477}
   fadeDuration: 10
   autoFade: 0
+  fadeOut: 1
 --- !u!114 &705377438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3243,6 +3269,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Level01
   waitTime: 10
+--- !u!114 &705377440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705377431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 010927f32fc00f44e8b3113f6f5cdba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSettings: {fileID: 11400000, guid: 5a0241999b63a6b4f9539b31f7e70b3f, type: 2}
 --- !u!1 &749366388
 GameObject:
   m_ObjectHideFlags: 0
@@ -5705,6 +5744,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 705377440}
+        m_TargetAssemblyTypeName: DifficultyData, Assembly-CSharp
+        m_MethodName: SetDifficulty
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
