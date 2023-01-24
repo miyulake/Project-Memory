@@ -43,7 +43,7 @@ public class Dash : MonoBehaviour
 
     private void Start()
     {
-        if (dashSetting.canDash)
+        if (dashSetting.canAbility)
         {
             dashUI.SetActive(true);
         }
@@ -57,7 +57,7 @@ public class Dash : MonoBehaviour
     {
         dashAura.transform.rotation = Quaternion.Euler(rotationEuler);
 
-        if (dashSetting.canDash)
+        if (dashSetting.canAbility)
         {
             if (Input.GetKey(dashInput) && inputTimer < inputTime)
             {

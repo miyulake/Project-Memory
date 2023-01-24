@@ -17,7 +17,7 @@ public class GameSettings : ScriptableObject
     public string playerName;
     public string playerVessel;
     public PlayerDifficulty difficulty = PlayerDifficulty.normal;
-    public bool canDash;
+    public bool canAbility;
 
     [Header("Game Settings")]
     public bool postEnabled;
