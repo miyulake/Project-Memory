@@ -21,7 +21,6 @@ public class InteractTeleport : MonoBehaviour
     [SerializeField] private Color teleportColor;
     [SerializeField] private Color targetImageColor;
 
-
     [Space]
     [SerializeField] private bool changingColor;
 

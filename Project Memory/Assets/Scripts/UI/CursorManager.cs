@@ -6,7 +6,7 @@ public class CursorManager : MonoBehaviour
 {
     [SerializeField] private Texture2D cursorTex;
 
-    [SerializeField] private bool cursorLock;
+    public bool cursorLock;
 
     private void Awake() 
     {

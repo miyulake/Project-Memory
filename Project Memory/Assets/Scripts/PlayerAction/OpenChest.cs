@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class OpenChest : MonoBehaviour
 {
+    [Header("Player")]
+    [SerializeField] private GameObject player;
+
     [Header("Anchor Point")]
     [SerializeField] private GameObject anchor;
 
@@ -23,7 +26,7 @@ public class OpenChest : MonoBehaviour
 
     private void Update()
     {
-        float playerDistance = Vector3.Distance(transform.position, GameManager.current.player.transform.position);
+        float playerDistance = Vector3.Distance(transform.position, player.transform.position);
         bool keyPressed = Input.GetKeyDown(KeyCode.E);
         bool inRange = playerDistance <= radius;
 

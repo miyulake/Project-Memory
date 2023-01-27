@@ -29,40 +29,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1089474873}
-  - {fileID: 405704269}
   m_Father: {fileID: 2110196743}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &405704268
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 405704269}
-  m_Layer: 3
-  m_Name: LeftHand
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &405704269
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 405704268}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 40754082}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &941066803
 GameObject:
@@ -317,7 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1089474873}
   m_Layer: 3
-  m_Name: RightHand
+  m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -615,19 +583,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7194224734431851715}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d63d7fa1b078254eb0fc98f084de599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveScript: {fileID: 0}
-  dashSetting: {fileID: 11400000, guid: 5a0241999b63a6b4f9539b31f7e70b3f, type: 2}
+  abilitySetting: {fileID: 0}
+  inventory: {fileID: 0}
+  player: {fileID: 0}
+  platform: {fileID: 0}
   dashSpeed: 5
   dashTime: 0.25
-  dashInput: 32
+  abilityInput: 99
   inputTime: 1
-  dashUI: {fileID: 0}
-  dashIcon: {fileID: 0}
+  abilityUI: {fileID: 0}
+  abilityIcon: {fileID: 0}
   textureList:
   - {fileID: 2800000, guid: 377cb91b1cfbe7a4f979dc1f415083ff, type: 3}
   - {fileID: 2800000, guid: 0d03ed4bcc4f785489edd0f857200a12, type: 3}
@@ -637,10 +608,11 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 30784947c250d7343ad63b22c72c1251, type: 3}
   - {fileID: 2800000, guid: 6ff3cea493f2bd544a5e4772cca18afa, type: 3}
   - {fileID: 2800000, guid: 2a7264dae52a8684cb7837b81687dacc, type: 3}
-  dashAura: {fileID: 0}
+  abilityAura: {fileID: 0}
   degrees: 30
   audioManager: {fileID: 0}
   dashSound: {fileID: 8300000, guid: 8352ecf426b031d46b4caf7a20c748c2, type: 3}
+  platformSound: {fileID: 8300000, guid: 5498366014be45244bc4e5265d44e118, type: 3}
   chargingSound: {fileID: 8300000, guid: 5f87b1e3190b2454fbcce2dd43ead86e, type: 3}
   readySound: {fileID: 8300000, guid: d8e60f531a837c0438977655a99ce4da, type: 3}
   audioVolume: 0.5
