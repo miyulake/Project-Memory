@@ -26,7 +26,7 @@ public class PickUpObject : MonoBehaviour
 
     private void Start()
     {
-        inventoryObject.SetActive(false);
+        if (inventoryObject != null) inventoryObject.SetActive(false);
         pickedUpText.SetActive(false);
     }
 
@@ -56,7 +56,7 @@ public class PickUpObject : MonoBehaviour
 
             pickedUpText.SetActive(true);
             environmentObject.SetActive(false);
-            inventoryObject.SetActive(true);
+            if(inventoryObject != null) inventoryObject.SetActive(true);
 
             audioManager.PlayOneShot(interactAudio, audioVolume);
         }
@@ -64,11 +64,11 @@ public class PickUpObject : MonoBehaviour
 
     private void AssignItem()
     {
-        if (inventory.item == Inventory.Items.soul)
+        if (itemType == Inventory.Items.soul)
         {
             inventory.soulAmount += 1;
         }
-        if (inventory.item == Inventory.Items.orb)
+        if (itemType == Inventory.Items.orb)
         {
             inventory.orbAmount += 1;
         }

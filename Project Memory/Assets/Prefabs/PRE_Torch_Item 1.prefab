@@ -208,7 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 89ae35af63b5aa14faa1e66613675add, type: 2}
   itemType: 1
-  environmentObject: {fileID: 6266111990233135098}
+  environmentObject: {fileID: 2417893470019899659}
   inventoryObject: {fileID: 0}
   pickedUpText: {fileID: 0}
   pickedUpScreen: {fileID: 0}

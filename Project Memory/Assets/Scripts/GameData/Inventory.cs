@@ -18,6 +18,7 @@ public class Inventory : ScriptableObject
     {
         none,
         torch,
+        sword,
         orb,
         soul
     }
@@ -35,6 +36,9 @@ public class Inventory : ScriptableObject
     [Header("Dash Values")]
     [Range(3, 15)] public float dashSpeed = 5;
     [Range(0.1f, 3)] public float dashInputDuration = 1;
+
+    [Header("Teleport Values")]
+    [Range(0, 99)] public float teleportAmount = 3;
 
     [Header("Platform Values")]
     [Range(3, 10)] public float platformDuration = 5;
