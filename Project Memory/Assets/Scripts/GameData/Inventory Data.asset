@@ -19,7 +19,10 @@ MonoBehaviour:
   currency: 0
   dashSpeed: 5
   dashInputDuration: 1
+  teleportAmount: 3
+  teleportInputDuration: 6
   platformDuration: 5
-  platformInputDuration: 3
+  platformInputDuration: 2
+  canRotate: 0
   dashDuration: 0.25
   platformSpeed: 2

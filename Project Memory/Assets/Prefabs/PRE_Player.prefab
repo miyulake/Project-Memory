@@ -588,30 +588,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d63d7fa1b078254eb0fc98f084de599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveScript: {fileID: 0}
-  abilitySetting: {fileID: 0}
-  inventory: {fileID: 0}
-  player: {fileID: 0}
-  platform: {fileID: 0}
-  dashSpeed: 5
-  dashTime: 0.25
+  moveScript: {fileID: 3834617902804540121}
+  abilitySetting: {fileID: 11400000, guid: 5a0241999b63a6b4f9539b31f7e70b3f, type: 2}
+  inventory: {fileID: 11400000, guid: 89ae35af63b5aa14faa1e66613675add, type: 2}
+  player: {fileID: 7194224734431851715}
+  headPivot: {fileID: 7194224735314936322}
+  platform: {fileID: 7091932123539356623, guid: 5c2ebf157822e5f44a869551cb19c592, type: 3}
+  abilitySpeed: 0
+  abilityDuration: 0
   abilityInput: 99
-  inputTime: 1
+  inputDuration: 0
   abilityUI: {fileID: 0}
   abilityIcon: {fileID: 0}
-  textureList:
-  - {fileID: 2800000, guid: 377cb91b1cfbe7a4f979dc1f415083ff, type: 3}
-  - {fileID: 2800000, guid: 0d03ed4bcc4f785489edd0f857200a12, type: 3}
-  - {fileID: 2800000, guid: 1ed1e32a1af319f418b0eaa1048350a8, type: 3}
-  - {fileID: 2800000, guid: 2e973cf4a32342c4dab1570f9f21dbf4, type: 3}
-  - {fileID: 2800000, guid: bec2fdf20b8518d4cbe2471d832e90d2, type: 3}
-  - {fileID: 2800000, guid: 30784947c250d7343ad63b22c72c1251, type: 3}
-  - {fileID: 2800000, guid: 6ff3cea493f2bd544a5e4772cca18afa, type: 3}
-  - {fileID: 2800000, guid: 2a7264dae52a8684cb7837b81687dacc, type: 3}
+  textureList: []
   abilityAura: {fileID: 0}
   degrees: 30
+  dashTextures:
+  - {fileID: 2800000, guid: 2a09b139ef9fb6b4686c8edc707cb89c, type: 3}
+  - {fileID: 2800000, guid: 2f945a8e23f8e02409274b591df091b9, type: 3}
+  - {fileID: 2800000, guid: ee30013984dc3cc4086b58f6444d7e8a, type: 3}
+  - {fileID: 2800000, guid: aaf813392b8c0c54b9fa2b07bbe0c90d, type: 3}
+  - {fileID: 2800000, guid: 76b1a79943146d94da528a26841b7862, type: 3}
+  - {fileID: 2800000, guid: 5c1423c50f722f4479ca152f3ddd905c, type: 3}
+  - {fileID: 2800000, guid: 9bf6f4b18ff0e234e8286ff8a21e9635, type: 3}
+  - {fileID: 2800000, guid: c3afc93ecce349846aed2652d09a40e8, type: 3}
+  - {fileID: 2800000, guid: a6a4e9c170e22824ca2a42bebfb715cf, type: 3}
+  - {fileID: 2800000, guid: 4f532f06803417d48a7d684686ad711c, type: 3}
+  - {fileID: 2800000, guid: c323a5cc03369e643bcc671c60627104, type: 3}
+  teleportTextures: []
+  platformTextures: []
   audioManager: {fileID: 0}
   dashSound: {fileID: 8300000, guid: 8352ecf426b031d46b4caf7a20c748c2, type: 3}
+  teleportSound: {fileID: 8300000, guid: dd057482a5ee6dc418464715f19fce59, type: 3}
   platformSound: {fileID: 8300000, guid: 5498366014be45244bc4e5265d44e118, type: 3}
   chargingSound: {fileID: 8300000, guid: 5f87b1e3190b2454fbcce2dd43ead86e, type: 3}
   readySound: {fileID: 8300000, guid: d8e60f531a837c0438977655a99ce4da, type: 3}

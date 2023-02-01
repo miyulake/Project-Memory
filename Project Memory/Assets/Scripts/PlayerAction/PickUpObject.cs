@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PickUpObject : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class PickUpObject : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject pickedUpText;
+    [SerializeField] private TextMeshProUGUI textMesh;
     [SerializeField] private RawImage pickedUpScreen;
     [SerializeField] private Color pickUpColor;
     [SerializeField] private Color targetImageColor;
@@ -27,7 +30,6 @@ public class PickUpObject : MonoBehaviour
     private void Start()
     {
         if (inventoryObject != null) inventoryObject.SetActive(false);
-        pickedUpText.SetActive(false);
     }
 
     private void Update()
@@ -54,7 +56,8 @@ public class PickUpObject : MonoBehaviour
 
             AssignItem();
 
-            pickedUpText.SetActive(true);
+            textMesh.text = "Picked Up " + '"' + itemType.ToString() + '"';
+            StartCoroutine(DisplayText());
             environmentObject.SetActive(false);
             if(inventoryObject != null) inventoryObject.SetActive(true);
 
@@ -72,5 +75,14 @@ public class PickUpObject : MonoBehaviour
         {
             inventory.orbAmount += 1;
         }
+    }
+
+    private IEnumerator DisplayText()
+    {
+        pickedUpText.SetActive(true);
+
+        yield return new WaitForSeconds(2);
+
+        pickedUpText.SetActive(false);
     }
 }

@@ -12,6 +12,7 @@ public class Inventory : ScriptableObject
         teleport,
         platform,
         transparent,
+        invincible,
         lsd
     }
     public enum Items
@@ -39,10 +40,12 @@ public class Inventory : ScriptableObject
 
     [Header("Teleport Values")]
     [Range(0, 99)] public float teleportAmount = 3;
+    [Range(1, 6)] public float teleportInputDuration = 6;
 
     [Header("Platform Values")]
     [Range(3, 10)] public float platformDuration = 5;
     [Range(2, 6)] public float platformInputDuration = 4;
+    public bool canRotate;
 
     [Header("DEBUG")]
     public float dashDuration = 0.25f;

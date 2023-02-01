@@ -31,11 +31,16 @@ public class Ability : MonoBehaviour
     [SerializeField] private RawImage abilityAura;
     [SerializeField] private float degrees;
 
+    [Header("Textures")]
+    [SerializeField] private Texture[] dashTextures;
+    [SerializeField] private Texture[] teleportTextures;
+    [SerializeField] private Texture[] platformTextures;
+
     private Vector3 rotationEuler;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioManager;
-    [SerializeField] private AudioClip dashSound, platformSound;
+    [SerializeField] private AudioClip dashSound, teleportSound, platformSound;
     [SerializeField] private AudioClip chargingSound;
     [SerializeField] private AudioClip readySound;
     [SerializeField] private float audioVolume;
@@ -129,6 +134,11 @@ public class Ability : MonoBehaviour
                     StartCoroutine(DashAction());
                     audioManager.PlayOneShot(dashSound, audioVolume);
                 }
+                if (inventory.ability == Inventory.Abilities.teleport)
+                {
+                    Teleport();
+                    audioManager.PlayOneShot(teleportSound, audioVolume);
+                }
                 if (inventory.ability == Inventory.Abilities.platform)
                 {
                     SpawnPlatform();
@@ -143,7 +153,7 @@ public class Ability : MonoBehaviour
     {
         float startTime = Time.time;
 
-        while(Time.time < startTime + abilityDuration)
+        while (Time.time < startTime + abilityDuration)
         {
             moveScript.characterController.Move(moveScript.HorizontalVelocity * abilitySpeed * Time.deltaTime);
 
@@ -151,10 +161,26 @@ public class Ability : MonoBehaviour
         }
     }
 
+    // Teleport ability
+    private void Teleport()
+    {
+        if (inventory.teleportAmount > 0)
+        {
+            //TO-DO: teleport ability to get players out of dungeons!
+        }
+    }
+
     // Platform ability
     private void SpawnPlatform()
     {
-        Instantiate(platform, player.transform.position + (player.transform.forward * 1.5f) + (player.transform.up * -0.25f), headPivot.rotation);
+        if (inventory.canRotate)
+        {
+            Instantiate(platform, player.transform.position + (player.transform.forward * 1.5f) + (player.transform.up * -0.25f), headPivot.rotation);
+        }
+        else
+        {
+            Instantiate(platform, player.transform.position + (player.transform.forward * 1.5f) + (player.transform.up * -0.25f), player.transform.rotation);
+        }
     }
 
     // Sets the ability values for each ability
@@ -162,12 +188,21 @@ public class Ability : MonoBehaviour
     {
         if (inventory.ability == Inventory.Abilities.dash)
         {
+            textureList = dashTextures;
             abilitySpeed = inventory.dashSpeed;
             abilityDuration = inventory.dashDuration;
             inputDuration = inventory.dashInputDuration;
         }
-        if (inventory.ability == Inventory.Abilities.platform)
+        else if (inventory.ability == Inventory.Abilities.teleport)
         {
+            textureList = teleportTextures;
+            //abilitySpeed = inventory.dashSpeed;
+            //abilityDuration = inventory.dashDuration;
+            inputDuration = inventory.teleportInputDuration;
+        }
+        else if (inventory.ability == Inventory.Abilities.platform)
+        {
+            textureList = platformTextures;
             abilitySpeed = inventory.platformSpeed;
             abilityDuration = inventory.platformDuration;
             inputDuration = inventory.platformInputDuration;
