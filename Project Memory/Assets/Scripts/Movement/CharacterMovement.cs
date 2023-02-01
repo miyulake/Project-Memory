@@ -15,7 +15,7 @@ public class CharacterMovement : MonoBehaviour
             groundRay = new Ray(transform.position + (Vector3.up * characterController.radius), Vector3.down);
             castDistance = characterController.skinWidth * 1.01f;
 
-            if (Physics.SphereCast(groundRay, characterController.radius, castDistance))
+            if (Physics.SphereCast(groundRay, characterController.radius, castDistance, 5, QueryTriggerInteraction.Ignore))
             {
                 return true;
             }

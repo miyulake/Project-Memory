@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: 1
   item: 1
-  soulAmount: 0
-  orbAmount: 0
+  soulAmount: 100
+  orbAmount: 99
   currency: 0
   dashSpeed: 5
   dashInputDuration: 1

@@ -25,5 +25,21 @@ public class DebugTeleport : MonoBehaviour
         {
             playerLocation.position = teleportLocations[3].position;
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            playerLocation.position = teleportLocations[4].position;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            playerLocation.position = teleportLocations[5].position;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            playerLocation.position = teleportLocations[6].position;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            playerLocation.position = teleportLocations[7].position;
+        }
     }
 }
