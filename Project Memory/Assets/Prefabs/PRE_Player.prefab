@@ -615,8 +615,27 @@ MonoBehaviour:
   - {fileID: 2800000, guid: a6a4e9c170e22824ca2a42bebfb715cf, type: 3}
   - {fileID: 2800000, guid: 4f532f06803417d48a7d684686ad711c, type: 3}
   - {fileID: 2800000, guid: c323a5cc03369e643bcc671c60627104, type: 3}
-  teleportTextures: []
-  platformTextures: []
+  teleportTextures:
+  - {fileID: 2800000, guid: 0567f18702d4e3f4fb088a871c0db8a6, type: 3}
+  - {fileID: 2800000, guid: 7f772691a0c69bd4083facfe432b8365, type: 3}
+  - {fileID: 2800000, guid: ba9bc789dc03b1b4c9df66b1c307bff7, type: 3}
+  - {fileID: 2800000, guid: 5d1b9a83410d69d4a8be17a17ac1bec3, type: 3}
+  - {fileID: 2800000, guid: 12e95948e220ff646b6aa7741a1e8a61, type: 3}
+  - {fileID: 2800000, guid: f7645092191d46e44a39c97f1143e6f6, type: 3}
+  - {fileID: 2800000, guid: 62c8f66ff01f4a44e9bd16c8679aff10, type: 3}
+  - {fileID: 2800000, guid: de7daea6c04ed5c4fb1abeae918aa90b, type: 3}
+  - {fileID: 2800000, guid: 91c4e3b83e67e9541b8f888971b37a3e, type: 3}
+  - {fileID: 2800000, guid: 4aca7cf68993a454788852a9fa0c172d, type: 3}
+  - {fileID: 2800000, guid: d200fa506b37e6342b3d097853127a84, type: 3}
+  platformTextures:
+  - {fileID: 2800000, guid: 377cb91b1cfbe7a4f979dc1f415083ff, type: 3}
+  - {fileID: 2800000, guid: 0d03ed4bcc4f785489edd0f857200a12, type: 3}
+  - {fileID: 2800000, guid: 1ed1e32a1af319f418b0eaa1048350a8, type: 3}
+  - {fileID: 2800000, guid: 2e973cf4a32342c4dab1570f9f21dbf4, type: 3}
+  - {fileID: 2800000, guid: bec2fdf20b8518d4cbe2471d832e90d2, type: 3}
+  - {fileID: 2800000, guid: 30784947c250d7343ad63b22c72c1251, type: 3}
+  - {fileID: 2800000, guid: 6ff3cea493f2bd544a5e4772cca18afa, type: 3}
+  - {fileID: 2800000, guid: 2a7264dae52a8684cb7837b81687dacc, type: 3}
   audioManager: {fileID: 0}
   dashSound: {fileID: 8300000, guid: 8352ecf426b031d46b4caf7a20c748c2, type: 3}
   teleportSound: {fileID: 8300000, guid: dd057482a5ee6dc418464715f19fce59, type: 3}

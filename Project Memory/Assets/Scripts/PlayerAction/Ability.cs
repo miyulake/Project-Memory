@@ -167,6 +167,7 @@ public class Ability : MonoBehaviour
         if (inventory.teleportAmount > 0)
         {
             //TO-DO: teleport ability to get players out of dungeons!
+            inventory.teleportAmount -= 1;
         }
     }
 

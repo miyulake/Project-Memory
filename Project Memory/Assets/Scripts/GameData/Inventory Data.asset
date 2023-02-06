@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7257bd858e29f8d478e2c604b61b1f74, type: 3}
   m_Name: Inventory Data
   m_EditorClassIdentifier: 
-  ability: 1
+  ability: 2
   item: 1
   soulAmount: 102
-  orbAmount: 99
+  orbAmount: 98
   currency: 0
   dashSpeed: 5
   dashInputDuration: 1

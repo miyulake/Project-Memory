@@ -39,7 +39,7 @@ public class Inventory : ScriptableObject
     [Range(0.1f, 3)] public float dashInputDuration = 1;
 
     [Header("Teleport Values")]
-    [Range(0, 99)] public float teleportAmount = 3;
+    [Range(0, 99)] public int teleportAmount = 3;
     [Range(1, 6)] public float teleportInputDuration = 6;
 
     [Header("Platform Values")]
