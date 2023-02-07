@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7257bd858e29f8d478e2c604b61b1f74, type: 3}
+  m_Script: {fileID: 11500000, guid: 2728859e6fa6eb1478da41ff8554cbef, type: 3}
   m_Name: Inventory Data
   m_EditorClassIdentifier: 
-  ability: 2
+  ability: 1
   item: 1
-  soulAmount: 102
-  orbAmount: 98
-  currency: 0
+  soulAmount: 25
+  orbAmount: 18
+  currency: 15
   dashSpeed: 5
   dashInputDuration: 1
-  teleportAmount: 3
+  teleportAmount: 93
   teleportInputDuration: 6
   platformDuration: 5
   platformInputDuration: 2

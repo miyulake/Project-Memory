@@ -5,9 +5,10 @@ using TMPro;
 
 public class PickUpObject : MonoBehaviour
 {
-    [Header("InventoryData")]
-    [SerializeField] private Inventory inventory;
-    [SerializeField] private Inventory.Items itemType;
+    [Header("Data")]
+    [SerializeField] private InventoryData inventory;
+    [SerializeField] private InventoryData.Items itemType;
+    [SerializeField] private LootList lootList;
 
     [Header("Object")]
     [SerializeField] private GameObject environmentObject;
@@ -19,7 +20,7 @@ public class PickUpObject : MonoBehaviour
     [SerializeField] private RawImage pickedUpScreen;
     [SerializeField] private Color pickUpColor;
     [SerializeField] private Color targetImageColor;
-    [SerializeField] private float SpeedMod;
+    [SerializeField] private float colorSpeedMod;
     [SerializeField] private bool changingColor;
 
     [Header("Audio")]
@@ -34,15 +35,7 @@ public class PickUpObject : MonoBehaviour
 
     private void Update()
     {
-        if (changingColor)
-        {
-            pickedUpScreen.color = Color.Lerp(pickedUpScreen.color, targetImageColor, SpeedMod * Time.deltaTime);
-        }
-
-        if (pickedUpScreen.color == targetImageColor)
-        {
-            changingColor = false;
-        }
+        LerpColorScreen();
     }
 
     private void OnTriggerStay(Collider col)
@@ -61,19 +54,33 @@ public class PickUpObject : MonoBehaviour
             environmentObject.SetActive(false);
             if(inventoryObject != null) inventoryObject.SetActive(true);
 
+            AddToLootList();
+
             audioManager.PlayOneShot(interactAudio, audioVolume);
         }
     }
 
     private void AssignItem()
     {
-        if (itemType == Inventory.Items.soul)
+        if (itemType == InventoryData.Items.soul)
         {
             inventory.soulAmount += 1;
         }
-        if (itemType == Inventory.Items.orb)
+        if (itemType == InventoryData.Items.orb)
         {
             inventory.orbAmount += 1;
+        }
+    }
+
+    private void LerpColorScreen()
+    {
+        if (changingColor)
+        {
+            pickedUpScreen.color = Color.Lerp(pickedUpScreen.color, targetImageColor, colorSpeedMod * Time.deltaTime);
+        }
+        if (pickedUpScreen.color == targetImageColor)
+        {
+            changingColor = false;
         }
     }
 
@@ -84,5 +91,10 @@ public class PickUpObject : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         pickedUpText.SetActive(false);
+    }
+
+    private void AddToLootList()
+    {
+        lootList.lootedObjects.Add(gameObject);
     }
 }

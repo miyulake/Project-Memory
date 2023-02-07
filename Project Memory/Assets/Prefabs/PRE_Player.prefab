@@ -480,6 +480,7 @@ GameObject:
   - component: {fileID: 6204997784094073983}
   - component: {fileID: 1468959313}
   - component: {fileID: 1792099373261797483}
+  - component: {fileID: 5559035141950607638}
   m_Layer: 0
   m_Name: PRE_Player
   m_TagString: Player
@@ -590,7 +591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveScript: {fileID: 3834617902804540121}
   abilitySetting: {fileID: 11400000, guid: 5a0241999b63a6b4f9539b31f7e70b3f, type: 2}
-  inventory: {fileID: 11400000, guid: 89ae35af63b5aa14faa1e66613675add, type: 2}
+  inventory: {fileID: 11400000, guid: 32727414041adbe44a412bc3d5a7896f, type: 2}
   player: {fileID: 7194224734431851715}
   headPivot: {fileID: 7194224735314936322}
   platform: {fileID: 7091932123539356623, guid: 5c2ebf157822e5f44a869551cb19c592, type: 3}
@@ -600,9 +601,15 @@ MonoBehaviour:
   inputDuration: 0
   abilityUI: {fileID: 0}
   abilityIcon: {fileID: 0}
-  textureList: []
   abilityAura: {fileID: 0}
   degrees: 30
+  textureList: []
+  teleportLocation: {fileID: 0}
+  teleportScreen: {fileID: 0}
+  teleportColor: {r: 0, g: 0, b: 0, a: 0}
+  targetImageColor: {r: 0, g: 0, b: 0, a: 0}
+  colorSpeedMod: 2.5
+  changingColor: 0
   dashTextures:
   - {fileID: 2800000, guid: 2a09b139ef9fb6b4686c8edc707cb89c, type: 3}
   - {fileID: 2800000, guid: 2f945a8e23f8e02409274b591df091b9, type: 3}
@@ -643,6 +650,24 @@ MonoBehaviour:
   chargingSound: {fileID: 8300000, guid: 5f87b1e3190b2454fbcce2dd43ead86e, type: 3}
   readySound: {fileID: 8300000, guid: d8e60f531a837c0438977655a99ce4da, type: 3}
   audioVolume: 0.5
+--- !u!114 &5559035141950607638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7194224734431851715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b047ae9ada6a3eb4e9835b6b94a969a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: 32727414041adbe44a412bc3d5a7896f, type: 2}
+  inventoryUI: {fileID: 0}
+  cursorManager: {fileID: 0}
+  soulAmount: {fileID: 0}
+  orbAmount: {fileID: 0}
+  currencyAmount: {fileID: 0}
 --- !u!1 &7194224734773861007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,7 +1153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1840775760851587336, guid: 4007eccf35f9e7142b195acf4a275e7e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1840775760851587336, guid: 4007eccf35f9e7142b195acf4a275e7e, type: 3}
       propertyPath: m_TagString

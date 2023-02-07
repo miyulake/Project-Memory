@@ -59,15 +59,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415fd081500d30541a80fc1730ef0586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 11400000, guid: 89ae35af63b5aa14faa1e66613675add, type: 2}
+  inventory: {fileID: 11400000, guid: 32727414041adbe44a412bc3d5a7896f, type: 2}
   itemType: 4
+  lootList: {fileID: 11400000, guid: 47e1d230f9432d142a61f9097de1286b, type: 2}
   environmentObject: {fileID: 5832728131934869926}
   inventoryObject: {fileID: 0}
   pickedUpText: {fileID: 0}
+  textMesh: {fileID: 0}
   pickedUpScreen: {fileID: 0}
   pickUpColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   targetImageColor: {r: 0, g: 0.5019608, b: 1, a: 0}
-  SpeedMod: 10
+  colorSpeedMod: 5
   changingColor: 0
   audioManager: {fileID: 0}
   interactAudio: {fileID: 8300000, guid: f0a7b6891723f394a97777b9f3df8ad2, type: 3}

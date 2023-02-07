@@ -8,7 +8,7 @@ public class Ability : MonoBehaviour
     [Space]
     [SerializeField] private CharacterMovement moveScript;
     [SerializeField] private GameSettings abilitySetting;
-    [SerializeField] private Inventory inventory;
+    [SerializeField] private InventoryData inventory;
 
     [Header("Objects")]
     [SerializeField] private GameObject player;
@@ -27,16 +27,22 @@ public class Ability : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject abilityUI;
     [SerializeField] private RawImage abilityIcon;
-    [SerializeField] private Texture[] textureList;
     [SerializeField] private RawImage abilityAura;
     [SerializeField] private float degrees;
+    [SerializeField] private Texture[] textureList;
+
+    [Header("Teleport Values")]
+    [SerializeField] private Transform teleportLocation;
+    [SerializeField] private RawImage teleportScreen;
+    [SerializeField] private Color teleportColor;
+    [SerializeField] private Color targetImageColor;
+    [SerializeField] private float colorSpeedMod;
+    [SerializeField] private bool changingColor;
 
     [Header("Textures")]
     [SerializeField] private Texture[] dashTextures;
     [SerializeField] private Texture[] teleportTextures;
     [SerializeField] private Texture[] platformTextures;
-
-    private Vector3 rotationEuler;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioManager;
@@ -45,6 +51,7 @@ public class Ability : MonoBehaviour
     [SerializeField] private AudioClip readySound;
     [SerializeField] private float audioVolume;
 
+    private Vector3 rotationEuler;
     private bool playOnce = true;
 
     private void Awake()
@@ -57,7 +64,6 @@ public class Ability : MonoBehaviour
         if (abilitySetting.canAbility)
         {
             abilityUI.SetActive(true);
-            abilityAura.color = new Color(1, 0, 0, 0);
         }
         else
         {
@@ -68,6 +74,8 @@ public class Ability : MonoBehaviour
     private void Update()
     {
         SetValues();
+
+        LerpColorScreen();
 
         abilityAura.transform.rotation = Quaternion.Euler(rotationEuler);
 
@@ -129,17 +137,17 @@ public class Ability : MonoBehaviour
 
                 // TO-DO: make it so that the script checks what ability is currently in use
                 // and create corresponding actions!
-                if (inventory.ability == Inventory.Abilities.dash)
+                if (inventory.ability == InventoryData.Abilities.dash)
                 {
                     StartCoroutine(DashAction());
                     audioManager.PlayOneShot(dashSound, audioVolume);
                 }
-                if (inventory.ability == Inventory.Abilities.teleport)
+                if (inventory.ability == InventoryData.Abilities.teleport)
                 {
                     Teleport();
                     audioManager.PlayOneShot(teleportSound, audioVolume);
                 }
-                if (inventory.ability == Inventory.Abilities.platform)
+                if (inventory.ability == InventoryData.Abilities.platform)
                 {
                     SpawnPlatform();
                     audioManager.PlayOneShot(platformSound, audioVolume);
@@ -166,7 +174,11 @@ public class Ability : MonoBehaviour
     {
         if (inventory.teleportAmount > 0)
         {
-            //TO-DO: teleport ability to get players out of dungeons!
+            teleportScreen.color = teleportColor;
+            changingColor = true;
+
+            player.transform.position = teleportLocation.position;
+
             inventory.teleportAmount -= 1;
         }
     }
@@ -187,21 +199,19 @@ public class Ability : MonoBehaviour
     // Sets the ability values for each ability
     private void SetValues()
     {
-        if (inventory.ability == Inventory.Abilities.dash)
+        if (inventory.ability == InventoryData.Abilities.dash)
         {
             textureList = dashTextures;
             abilitySpeed = inventory.dashSpeed;
             abilityDuration = inventory.dashDuration;
             inputDuration = inventory.dashInputDuration;
         }
-        else if (inventory.ability == Inventory.Abilities.teleport)
+        else if (inventory.ability == InventoryData.Abilities.teleport)
         {
             textureList = teleportTextures;
-            //abilitySpeed = inventory.dashSpeed;
-            //abilityDuration = inventory.dashDuration;
             inputDuration = inventory.teleportInputDuration;
         }
-        else if (inventory.ability == Inventory.Abilities.platform)
+        else if (inventory.ability == InventoryData.Abilities.platform)
         {
             textureList = platformTextures;
             abilitySpeed = inventory.platformSpeed;
@@ -214,5 +224,18 @@ public class Ability : MonoBehaviour
     private void ChangeSprite(int index)
     {
         abilityIcon.texture = textureList[index];
+    }
+
+    // Handles screen color transition during teleporting
+    private void LerpColorScreen()
+    {
+        if (changingColor)
+        {
+            teleportScreen.color = Color.Lerp(teleportScreen.color, targetImageColor, colorSpeedMod * Time.deltaTime);
+        }
+        if (teleportScreen.color == targetImageColor)
+        {
+            changingColor = false;
+        }
     }
 }

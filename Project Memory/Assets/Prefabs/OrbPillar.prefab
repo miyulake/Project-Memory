@@ -6243,7 +6243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84dac445ff59f2245bdb3c50e8ebe34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 11400000, guid: 89ae35af63b5aa14faa1e66613675add, type: 2}
+  inventory: {fileID: 11400000, guid: 32727414041adbe44a412bc3d5a7896f, type: 2}
   insertOrbEvent:
     m_PersistentCalls:
       m_Calls: []

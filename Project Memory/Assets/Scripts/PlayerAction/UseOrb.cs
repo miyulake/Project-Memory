@@ -6,7 +6,7 @@ using TMPro;
 
 public class UseOrb : MonoBehaviour
 {
-    [SerializeField] private Inventory inventory;
+    [SerializeField] private InventoryData inventory;
     [SerializeField] private UnityEvent insertOrbEvent;
     [SerializeField] private UnityEvent removeOrbEvent;
     [SerializeField] private GameObject pillarOrb;

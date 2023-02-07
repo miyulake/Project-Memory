@@ -7,7 +7,7 @@ public class ConvertCurrency : MonoBehaviour
 {
     //TO-DO: create a button/slider system for changing souls into currency
     //and changing the values of abilities with said currency
-    [SerializeField] private Inventory inventory;
+    [SerializeField] private InventoryData inventory;
 
     private void TransferSoul()
     {
