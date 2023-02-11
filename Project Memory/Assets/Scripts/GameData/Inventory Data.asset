@@ -16,13 +16,14 @@ MonoBehaviour:
   item: 1
   soulAmount: 25
   orbAmount: 18
-  currency: 15
+  currency: 10.25
   dashSpeed: 5
   dashInputDuration: 1
-  teleportAmount: 93
+  teleportAmount: 60
   teleportInputDuration: 6
   platformDuration: 5
   platformInputDuration: 2
   canRotate: 0
+  canUseDebug: 0
   dashDuration: 0.25
   platformSpeed: 2
