@@ -1,16 +1,12 @@
 {
     "playerPos": {
-        "x": 0.3708372414112091,
+        "x": 0.29182159900665285,
         "y": -49.970001220703128,
-        "z": 120.31855010986328
+        "z": 120.20195007324219
     },
-    "loot": [
-        {
-            "instanceID": -1295182
-        }
-    ],
-    "soulAmount": 25,
-    "orbAmount": 18,
+    "loot": [],
+    "soulAmount": 27,
+    "orbAmount": 19,
     "currency": 15.0,
     "hasDash": false,
     "hasTeleport": false,
