@@ -47,6 +47,21 @@ public class InventoryData : ScriptableObject
     [Range(2, 6)] public float platformInputDuration = 4;
     public bool canRotate;
 
+    [Header("Transparent Values")]
+    [Range(5, 50)] public float transparentDuration = 5;
+    [Range(1, 6)] public float transparentInputDuration = 3;
+    public bool isEnlightened;
+    public bool isDemonic;
+
+    [Header("Invincible Values")]
+    [Range(3, 9)] public float invincibleDuration = 5;
+    [Range(0, 3)] public int invincibleAmount = 1;
+    [Range(3, 6)] public float invincibleInputDuration = 6;
+
+    [Header("LSD Values")]
+    [Range(60, 120)] public float LSDDuration = 60;
+    [Range(0.1f, 1)] public float LSDInputDuration = 1;
+
     // Can be unlocked by the player for spending 100 souls!
     [Header("DEBUG")]
     public bool canUseDebug;
