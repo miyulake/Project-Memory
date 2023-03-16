@@ -14,9 +14,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Questionnaire.unity
     guid: 196a7617c05d1ef44a7bb39f29d63793
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level01.unity
-    guid: ddb86dd913784bf4eb1aacda61b6c2f2
+    guid: bf3b78ef1eb9b1a40a54f0c8fec6b42a
   - enabled: 0
     path: Assets/Scenes/Level02.unity
     guid: 09c564a188f646846843bafeb3c3941b

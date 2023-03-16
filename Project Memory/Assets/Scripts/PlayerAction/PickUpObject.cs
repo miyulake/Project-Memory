@@ -8,7 +8,9 @@ public class PickUpObject : MonoBehaviour
     [Header("Data")]
     [SerializeField] private InventoryData inventory;
     [SerializeField] private InventoryData.Items itemType;
+    [SerializeField] private InventoryData.Abilities abilityType;
     [SerializeField] private LootList lootList;
+    [SerializeField] private bool isAbility;
 
     [Header("Object")]
     [SerializeField] private GameObject environmentObject;
@@ -42,21 +44,28 @@ public class PickUpObject : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            gameObject.GetComponent<BoxCollider>().enabled = false;
+            if (isAbility)
+            {
 
-            pickedUpScreen.color = pickUpColor;
-            changingColor = true;
+            }
+            else
+            {
+                gameObject.GetComponent<BoxCollider>().enabled = false;
 
-            AssignItem();
+                pickedUpScreen.color = pickUpColor;
+                changingColor = true;
 
-            textMesh.text = "Picked Up " + '"' + itemType.ToString() + '"';
-            StartCoroutine(DisplayText());
-            environmentObject.SetActive(false);
-            if(inventoryObject != null) inventoryObject.SetActive(true);
+                AssignItem();
 
-            AddToLootList();
+                textMesh.text = "Picked Up " + '"' + itemType.ToString() + '"';
+                StartCoroutine(DisplayText());
+                environmentObject.SetActive(false);
+                if (inventoryObject != null) inventoryObject.SetActive(true);
 
-            audioManager.PlayOneShot(interactAudio, audioVolume);
+                AddToLootList();
+
+                audioManager.PlayOneShot(interactAudio, audioVolume);
+            }
         }
     }
 
@@ -66,10 +75,15 @@ public class PickUpObject : MonoBehaviour
         {
             inventory.soulAmount += 1;
         }
-        if (itemType == InventoryData.Items.orb)
+        else if (itemType == InventoryData.Items.orb)
         {
             inventory.orbAmount += 1;
         }
+    }
+
+    private void AssignAbility()
+    {
+
     }
 
     private void LerpColorScreen()
